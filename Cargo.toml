@@ -1,0 +1,16 @@
+[package]
+name = "ringlink-transport"
+description = "transport layer for RingLink"
+authors = ["boot <boot@ring.link>"]
+version = "0.1.15"
+edition = "2021"
+
+[dependencies]
+bytes = "1.8"
+async-trait = { version = "0.1.83" }
+tokio = { version = "1.42.0", optional = true, features = ["net", "io-util"] }
+arc-swap = { version = "1.7.1", optional = true }
+
+[features]
+default = ["std"]
+std = ["dep:tokio", "dep:arc-swap"]
